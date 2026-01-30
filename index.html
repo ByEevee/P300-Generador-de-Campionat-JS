@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <link rel="stylesheet" href="styles/estils.css">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generador de Campionat</title>
-    </head>
-    <body>
-        <header id="Principal">
-            <h1 class="TitolC">Generador de Campionat</h1>
-            <button id="startButton" onclick="start()">Començar</button>
-        </header>
-        <div id="Opcions" style="visibility: hidden;">
-            <h2 class="OpcionsTitol">Opcions de Torneig</h2>
-            <h3>Quants equips vols introduir?</h3>
-            <input type="number" id="numEquips" min="2" max="32" value="2">
-            <button onclick="equipsIntroduits()">Següent</button>
-            <br><br>
-        </div>
-        <div id="Equips" style="visibility: hidden;">
-            <h2 class="EquipsTitol">Introducció d'Equips</h2>
-            <h3>Vols introduir els noms dels equips manualment?</h3>
-            <button id="si" onclick="IntroduirNomsEquips()">Sí</button>
-            <button id="no" onclick="generarNomsEquips()">No</button>
-
-        </div>
-    </body>
-    </html>
-    <script src="script/JavaScript.js">
-    </script>
-
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Campionat</title>
+    <link rel="stylesheet" href="styles/estils.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="Principal">
+        <h1 class="TitolC">🏆 Generador de Campionat 🏆</h1>
+        <button id="startButton" onclick="start()">Començar</button>
+    </header>
+    
+    <div id="Opcions" style="display: none;">
+        <h2 class="OpcionsTitol">Opcions de Torneig</h2>
+        <h3>Quants equips vols introduir?</h3>
+        <p style="text-align: center; color: #386185; font-size: 14px; margin-top: 10px;">
+            (El nombre ha de ser una potència de 2: 2, 4, 8, 16 o 32)
+        </p>
+        <input type="number" id="numEquips" min="2" max="32" value="4" step="2">
+        <button onclick="equipsIntroduits()">Següent</button>
+        <br><br>
+    </div>
+    
+    <div id="Equips" style="display: none;">
+        <h2 class="EquipsTitol">Introducció d'Equips</h2>
+        <h3>Vols introduir els noms dels equips manualment?</h3>
+        <button id="si" onclick="IntroduirNomsEquips()">Sí</button>
+        <button id="no" onclick="generarNomsEquips()">No (Generar automàticament)</button>
+    </div>
+    
+    <div id="NomsEquips" style="display: none;">
+        <h2 class="NomsEquipsTitol">Noms dels Equips</h2>
+        
+        <div id="formulariNomsEquips"></div>
+        <button onclick="guardarNomsEquips()">Guardar Noms i Generar Torneig</button>
+    </div>
+    
+    <div id="EquipsRandomitzats" style="display: none;">
+        <h2 class="RandomizatFet">TORNEIG GENERAT CORRECTAMENT</h2>
+        <p style="text-align: center; color: #386185; font-size: 16px; margin-bottom: 20px;">
+            Selecciona els guanyadors de cada partit i genera la següent ronda
+        </p>
+        <div id="partitsCalendari"></div>
+    </div>
+    
+    <script src="script/JavaScript.js"></script>
+</body>
+</html>
